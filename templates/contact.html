@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}
+Contact Us
+{% endblock title %}
+{% block head %}
+
+<h1>Contact Us</h1>
+
+<div class="container mt-2">
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong></strong> {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>    
+    </div>
+    {% endfor %}
+
+
+
+    {% comment %}  contact us code  {% endcomment %}
+
+    <form action="/contact" method="post">{% csrf_token %}
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="name" placeholder="Enter Your Name" required>
+      </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control mt-2" name="email" placeholder="Enter Your Email" required>
+      </div>
+
+      <div class="form-group">
+        <input type="number" class="form-control mt-2" name="number" placeholder="Enter Your Number" required>
+      </div>
+
+      <div class="form-group">
+      <label for="desc" class="text-warning">How Can i Help You?</label>
+      <textarea class="form-control mt-2" name="desc" cols="5" row="3" id="desc"></textarea> 
+      </div>
+
+      <br>
+      <div class="d-grid gap-2">
+        <button class="btn btn-warning" type="submit">Submit</button>
+      </div>  
+
+    </form>
+
+
+    
+
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+
+
+
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    
+
+    <div>
+      <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1583.9287855812422!2d72.82873697879816!3d19.22842334021654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b137e99429e1%3A0xcfabecdc78872e56!2sVictory%20Heights%2C%20Gorai%201%2C%20Borivali%2C%20Mumbai%2C%20Maharashtra%20400092!5e0!3m2!1sen!2sin!4v1709744734427!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    
+        <div class="text">
+        <div class="text-warning">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p>Boriwali-west, Gorai-1, mumbai-400091</p>
+          </div>
+
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p>homeshpawaskar123@gmail.com</p>
+          </div>
+
+          <div class="phone">
+            <i class="bi bi-phone"></i>
+            <h4>Call:</h4>
+            <p>+91 7666877704</p>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    
+
+      
+
+       
+
+      </div>
+    </div>
+  
+
+  </div>
+</section>
+
+{% endblock head %}
